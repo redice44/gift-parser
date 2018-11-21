@@ -1,3 +1,4 @@
 module.exports = {
-  simpleQuestions: require('./simpleQuestions')
+  simpleQuestions: require('./simpleQuestions'),
+  simpleTitles: require('./simpleTitles')
 };
