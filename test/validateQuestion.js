@@ -14,12 +14,12 @@ const testQuestion = (question, result) => {
 
 describe('validateQuestion()', () => {
   it('should validate questions', () => {
-    questions.valid.simpleQuestions.forEach(testValidQuestion);
+    questions.valid.simpleMCs.forEach(question => { testValidQuestion(question.text); });
   });
   it('should validate example question set', () => {
     splitQuestions(removeComments(questions.valid.exampleSet)).forEach(testValidQuestion);
   });
   it('should invalidate invalid questions', () => {
-    questions.invalid.simpleQuestions.forEach(testInvalidQuestion);
+    questions.invalid.simpleQuestions.forEach((question => { testInvalidQuestion(question.text); }));
   });
 });

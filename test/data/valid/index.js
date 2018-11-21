@@ -1,5 +1,5 @@
 module.exports = {
   exampleSet: require('./exampleSet'),
-  simpleQuestions: require('./simpleQuestions'),
+  simpleMCs: require('./simpleMC'),
   simpleTitles: require('./simpleTitles')
 };
