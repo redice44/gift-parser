@@ -20,6 +20,6 @@ describe('validateQuestion()', () => {
     splitQuestions(removeComments(questions.valid.exampleSet)).forEach(testValidQuestion);
   });
   it('should invalidate invalid questions', () => {
-    questions.invalid.simpleQuestions.forEach((question => { testInvalidQuestion(question.text); }));
+    questions.invalid.simpleQuestions.forEach(testInvalidQuestion);
   });
 });
