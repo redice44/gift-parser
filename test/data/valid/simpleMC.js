@@ -7,7 +7,20 @@ module.exports = [{
     '=answer',
     '~ wrong',
     '~wrong'
-  ]
+  ],
+  answers: [{
+    text: 'answer',
+    correct: true,
+    value: 100
+  }, {
+    text: 'wrong',
+    correct: false,
+    value: 0
+  }, {
+    text: 'wrong',
+    correct: false,
+    value: 0
+  }]
 }, {
   text: 'Question test {~wrong ~w =ans}',
   title: null,
@@ -17,7 +30,20 @@ module.exports = [{
     '~wrong',
     '~w',
     '=ans'
-  ]
+  ],
+  answers: [{
+    text: 'wrong',
+    correct: false,
+    value: 0
+  }, {
+    text: 'w',
+    correct: false,
+    value: 0
+  }, {
+    text: 'ans',
+    correct: true,
+    value: 100
+  }]
 }, {
   text: 'nospace{~wrong=ans~wrong}',
   title: null,
@@ -27,7 +53,20 @@ module.exports = [{
     '~wrong',
     '=ans',
     '~wrong'
-  ]
+  ],
+  answers: [{
+    text: 'wrong',
+    correct: false,
+    value: 0
+  }, {
+    text: 'ans',
+    correct: true,
+    value: 100
+  }, {
+    text: 'wrong',
+    correct: false,
+    value: 0
+  }]
 }, {
   text: 'weights{~%50%wrong =ans ~%20%wrong}',
   title: null,
@@ -37,5 +76,41 @@ module.exports = [{
     '~%50%wrong',
     '=ans',
     '~%20%wrong'
-  ]
+  ],
+  answers: [{
+    text: 'wrong',
+    correct: false,
+    value: 50
+  }, {
+    text: 'ans',
+    correct: true,
+    value: 100
+  }, {
+    text: 'wrong',
+    correct: false,
+    value: 20
+  }]
+}, {
+  text: 'simple negative weights {~%-50%neg 50 =full credit ~ %-25% negative 25}',
+  title: null,
+  body: 'simple negative weights',
+  answerString: '~%-50%neg 50 =full credit ~ %-25% negative 25',
+  rawAnswers: [
+    '~%-50%neg 50',
+    '=full credit',
+    '~ %-25% negative 25'
+  ],
+  answers: [{
+    text: 'neg 50',
+    correct: false,
+    value: -50
+  }, {
+    text: 'full credit',
+    correct: true,
+    value: 100
+  }, {
+    text: 'negative 25',
+    correct: false,
+    value: -25
+  }]
 }];
