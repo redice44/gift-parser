@@ -1,6 +1,6 @@
 const ANSWER_BLANKS = require('./constants/answerBlanks');
 
-const answersRegex = /{.*}/;
+const answersRegex = /{[\s\S]*}/;
 const titleRegex = /^::.+::/;
 
 const getQuestionBody = question => {
@@ -15,7 +15,7 @@ const getQuestionBody = question => {
 
   const answerPieces = modQuestion
     .split(answersRegex)
-    .map(d => d.trim())
+    .map(d => d.replace(/\n/g, ' ').trim())
     .filter(d => d);
 
   if (answerPieces.length > 1) {
