@@ -4,14 +4,14 @@ const classifyQuestion = require('../src/classifyQuestion');
 const evaluateAnswer = require('../src/evaluateAnswer');
 const getQuestionAnswers = require('../src/getQuestionAnswers');
 const getQuestionBody = require('../src/getQuestionBody');
-const separateAnswers = require('../src/separateAnswers');
+const splitAnswers = require('../src/splitAnswers');
 
 const questions = require('./data');
 
 const testValidQuestion = question => {
   const analyzedQuestion = {
     body: getQuestionBody(question.text),
-    answers: separateAnswers(getQuestionAnswers(question.text)).map(evaluateAnswer)
+    answers: splitAnswers(getQuestionAnswers(question.text)).map(evaluateAnswer)
   };
 
   expect(classifyQuestion(analyzedQuestion)).to.equal(question.type);
