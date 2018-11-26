@@ -4,9 +4,13 @@ const answersRegex = /{.*}/;
 const titleRegex = /^::.+::/;
 
 const getQuestionBody = question => {
-  let modQuestion = question;
+  let modQuestion = question.trim();
   if (titleRegex.test(modQuestion)) {
-    modQuestion = modQuestion.replace(titleRegex, '');
+    modQuestion = modQuestion.replace(titleRegex, '').trim();
+  }
+
+  if(!modQuestion) {
+    throw new Error('Question requires body text.');
   }
 
   const answerPieces = modQuestion
