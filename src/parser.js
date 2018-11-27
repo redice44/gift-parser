@@ -18,7 +18,7 @@ const parseQuestion = question => {
 
   }
   const answerString = getAnswers(question);
-  if (!answerString) {
+  if (answerString === null) {
     return {
       title,
       body,
@@ -28,6 +28,13 @@ const parseQuestion = question => {
   const answers = splitAnswers(answerString).map(evaluateAnswer);
   let type;
   if (answers[0].type) {
+    if (answers[0].type === QUESTION_TYPES.ESSAY) {
+      return {
+        title,
+        body,
+        type: QUESTION_TYPES.ESSAY
+      };
+    }
     type = answers[0].type;
     answers.forEach(answer => { delete answer.type; });
   } else {

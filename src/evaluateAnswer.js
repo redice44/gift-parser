@@ -30,6 +30,11 @@ const evaluateAnswer = answer => {
   if (answer[0] === '=' && matchRegex.test(answer)) {
     return matchAnswer(answer);
   }
+  if (answer.length === 0) {
+    return {
+      type: QUESTION_TYPES.ESSAY
+    };
+  }
   const result = {
     correct: answer[0] === '='
   };

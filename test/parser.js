@@ -25,6 +25,10 @@ describe('parser', () => {
     expect(parser(questions.valid.simpleMatch.single.questions)).to.deep
       .equal(questions.valid.simpleMatch.single.results);
   });
+  it('should parse a set of Essay questions', () => {
+    expect(parser(questions.valid.simpleEssay.single.questions)).to.deep
+      .equal(questions.valid.simpleEssay.single.results);
+  });
 });
 
 describe('parseQuestion()', () => {
@@ -39,5 +43,8 @@ describe('parseQuestion()', () => {
   });
   it('should correctly classify and parse Matching questions', () => {
     questions.valid.simpleMatch.set.forEach(testValid);
+  });
+  it('should correctly classify and parse Essay questions', () => {
+    questions.valid.simpleEssay.set.forEach(testValid);
   });
 });
