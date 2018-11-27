@@ -17,6 +17,10 @@ describe('parser', () => {
     expect(parser(questions.valid.simpleTFs.single.questions)).to.deep
       .equal(questions.valid.simpleTFs.single.results);
   });
+  it('should parse a set of Desc questions', () => {
+    expect(parser(questions.valid.simpleDesc.single.questions)).to.deep
+      .equal(questions.valid.simpleDesc.single.results);
+  });
 });
 
 describe('parseQuestion()', () => {
@@ -25,5 +29,8 @@ describe('parseQuestion()', () => {
   });
   it('should correctly classify and parse TF questions', () => {
     questions.valid.simpleTFs.set.forEach(testValid);
+  });
+  it('should correctly classify and parse Description questions', () => {
+    questions.valid.simpleDesc.set.forEach(testValid);
   });
 });

@@ -1,3 +1,4 @@
+const QUESTION_TYPES = require('./constants/questionTypes');
 const classifyAnswers = require('./classifyAnswers');
 const evaluateAnswer = require('./evaluateAnswer');
 const getAnswers = require('./getQuestionAnswers');
@@ -18,8 +19,11 @@ const parseQuestion = question => {
   }
   const answerString = getAnswers(question);
   if (!answerString) {
-    // description type
-    return;
+    return {
+      title,
+      body,
+      type: QUESTION_TYPES.DESCRIPTION
+    }
   }
   const answers = splitAnswers(answerString).map(evaluateAnswer);
   const type = classifyAnswers(answers);
