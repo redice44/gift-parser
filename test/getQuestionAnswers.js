@@ -6,7 +6,9 @@ const splitAnswers = require('../src/splitAnswers');
 const testValidAnswers = question => {
   const answerString = getQuestionAnswers(question.text);
   expect(answerString).to.equal(question.answerString);
-  expect(splitAnswers(answerString)).to.deep.equal(question.answers);
+  if (answerString) {
+    expect(splitAnswers(answerString)).to.deep.equal(question.answers);
+  }
 };
 
 describe('getQuestionAnswers()', () => {
@@ -89,6 +91,9 @@ describe('getQuestionAnswers()', () => {
         FALSE}`,
       answerString: 'FALSE',
       answers: ['FALSE']
+   }, {
+     text: 'body',
+     answerString: null
    }];
    questions.forEach(testValidAnswers);
   });
