@@ -100,9 +100,6 @@ describe('evaluateAnswer()', () => {
     [{
       text: '=ans -> pair',
       results: {
-        text: null,
-        correct: null,
-        value: 100,
         match: {
           ans: 'pair'
         },
@@ -111,9 +108,6 @@ describe('evaluateAnswer()', () => {
     }, {
       text: '=ans->pair',
       results: {
-        text: null,
-        correct: null,
-        value: 100,
         match: {
           ans: 'pair'
         },
@@ -122,9 +116,6 @@ describe('evaluateAnswer()', () => {
     }, {
       text: '= ans ->  pair',
       results: {
-        text: null,
-        correct: null,
-        value: 100,
         match: {
           ans: 'pair'
         },

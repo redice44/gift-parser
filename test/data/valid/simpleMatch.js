@@ -6,9 +6,6 @@ const question001 = {
     title: 'title',
     body: 'body',
     answers: [{
-      text: null,
-      correct: null,
-      value: 100,
       match: {
         ans: 'pair'
       }
@@ -23,9 +20,6 @@ const question002 = {
     title: null,
     body: 'body',
     answers: [{
-      text: null,
-      correct: null,
-      value: 100,
       match: {
         ans: 'pair'
       }
@@ -40,16 +34,10 @@ const question003 = {
     title: null,
     body: 'body',
     answers: [{
-      text: null,
-      correct: null,
-      value: 100,
       match: {
         ans: 'pair'
       }
     }, {
-      text: null,
-      correct: null,
-      value: 100,
       match: {
         foo: 'bar'
       }
@@ -64,16 +52,10 @@ const question004 = {
     title: null,
     body: 'body',
     answers: [{
-      text: null,
-      correct: null,
-      value: 100,
       match: {
         ans: 'pair'
       }
     }, {
-      text: null,
-      correct: null,
-      value: 100,
       match: {
         foo: 'bar'
       }

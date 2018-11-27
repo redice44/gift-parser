@@ -9,9 +9,6 @@ const matchAnswer = answer => {
   const key = parts[0].substr(1).trim();
   const value = parts[1].trim();
   return {
-    text: null,
-    correct: null,
-    value: 100,
     match: {
       [key]: value
     },
