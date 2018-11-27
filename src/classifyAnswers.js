@@ -11,6 +11,7 @@ const classifyAnswer = answers => {
   if (flags.incorrect > 0) {
     return QUESTION_TYPES.MC;
   }
+  return QUESTION_TYPES.SHORT;
 };
 
 module.exports = classifyAnswer;
