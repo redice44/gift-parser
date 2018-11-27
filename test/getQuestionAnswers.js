@@ -1,15 +1,95 @@
 const expect = require('chai').expect;
 
 const getQuestionAnswers = require('../src/getQuestionAnswers');
-
-const questions = require('./data');
+const splitAnswers = require('../src/splitAnswers');
 
 const testValidAnswers = question => {
-  expect(getQuestionAnswers(question.text)).to.equal(question.answerString);
+  const answerString = getQuestionAnswers(question.text);
+  expect(answerString).to.equal(question.answerString);
+  expect(splitAnswers(answerString)).to.deep.equal(question.answers);
 };
 
 describe('getQuestionAnswers()', () => {
   it('should return answers', () => {
-    questions.valid.simpleMCs.forEach(testValidAnswers);
+    const questions = [{
+      text: 'body{}',
+      answerString: '',
+      answers: ['']
+    }, {
+      text: 'body{=ans~wrong~incorrect}',
+      answerString: '=ans~wrong~incorrect',
+      answers: [
+        '=ans',
+        '~wrong',
+        '~incorrect'
+      ]
+    }, {
+      text: 'body{  =ans ~wrong ~incorrect  }',
+      answerString: '=ans ~wrong ~incorrect',
+      answers: [
+        '=ans',
+        '~wrong',
+        '~incorrect'
+      ]
+    }, {
+      text: 'body{T}',
+      answerString: 'T',
+      answers: ['T']
+    }, {
+      text: 'body{FALSE}',
+      answerString: 'FALSE',
+      answers: ['FALSE']
+    }, {
+      text: 'body{}again',
+      answerString: '',
+      answers: ['']
+    }, {
+      text: 'body{=ans~wrong~incorrect}again',
+      answerString: '=ans~wrong~incorrect',
+      answers: [
+        '=ans',
+        '~wrong',
+        '~incorrect'
+      ]
+    }, {
+      text: 'body{T}again',
+      answerString: 'T',
+      answers: ['T']
+    }, {
+      text: 'body{FALSE}again',
+      answerString: 'FALSE',
+      answers: ['FALSE']
+    }, {
+      text: `body{
+      }`,
+      answerString: '',
+      answers: ['']
+    }, {
+      text: `body{
+        =ans
+        ~wrong
+        ~incorrect
+      }`,
+      answerString: `=ans
+        ~wrong
+        ~incorrect`,
+      answers: [
+        '=ans',
+        '~wrong',
+        '~incorrect'
+      ]
+    }, {
+      text: `body{
+        T
+      }`,
+      answerString: 'T',
+      answers: ['T']
+    }, {
+      text: `body{
+        FALSE}`,
+      answerString: 'FALSE',
+      answers: ['FALSE']
+   }];
+   questions.forEach(testValidAnswers);
   });
 });
