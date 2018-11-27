@@ -1,4 +1,4 @@
-const titleRegex = /^::(.+)::.+$/;
+const titleRegex = /^::(.+)::[\s\S]+$/;
 const getQuestionTitle = question => {
   if (!titleRegex.test(question)) {
     return null;
