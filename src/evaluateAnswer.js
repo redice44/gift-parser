@@ -16,9 +16,7 @@ const matchAnswer = answer => {
   };
 };
 const tfAnswer = isCorrect => ({
-  text: null,
   correct: isCorrect,
-  value: isCorrect ? 100 : 0,
   type: QUESTION_TYPES.TF
 });
 

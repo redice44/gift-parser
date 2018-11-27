@@ -6,9 +6,7 @@ const question001 = {
     title: 'title',
     body: 'body',
     answers: [{
-      text: null,
       correct: true,
-      value: 100
     }],
     type: QUESTION_TYPES.TF
   }
@@ -20,9 +18,7 @@ const question002 = {
     title: null,
     body: 'body',
     answers: [{
-      text: null,
       correct: true,
-      value: 100
     }],
     type: QUESTION_TYPES.TF
   }
@@ -34,9 +30,7 @@ const question003 = {
     title: null,
     body: 'body',
     answers: [{
-      text: null,
       correct: false,
-      value: 0
     }],
     type: QUESTION_TYPES.TF
   }
@@ -48,9 +42,7 @@ const question004 = {
     title: null,
     body: 'body',
     answers: [{
-      text: null,
       correct: false,
-      value: 0
     }],
     type: QUESTION_TYPES.TF
   }

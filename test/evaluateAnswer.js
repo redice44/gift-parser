@@ -65,33 +65,25 @@ describe('evaluateAnswer()', () => {
     [{
       text: 'T',
       results: {
-        text: null,
         correct: true,
-        value: 100,
         type: QUESTION_TYPES.TF
       }
     }, {
       text: 'TRUE',
       results: {
-        text: null,
         correct: true,
-        value: 100,
         type: QUESTION_TYPES.TF
       }
     }, {
       text: 'F',
       results: {
-        text: null,
         correct: false,
-        value: 0,
         type: QUESTION_TYPES.TF
       }
     }, {
       text: 'FALSE',
       results: {
-        text: null,
         correct: false,
-        value: 0,
         type: QUESTION_TYPES.TF
       }
     }].forEach(testValidAnswer);
