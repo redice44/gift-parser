@@ -1,5 +1,21 @@
+const trueRegex = /^T$|^TRUE$/;
+const falseRegex = /^F$|^FALSE$/;
 const weightRegex = /^%(-?\d+)%/;
 const evaluateAnswer = answer => {
+  if (trueRegex.test(answer)) {
+    return {
+      text: null,
+      correct: true,
+      value: 100
+    };
+  }
+  if (falseRegex.test(answer)) {
+    return {
+      text: null,
+      correct: false,
+      value: 0
+    };
+  }
   const result = {
     correct: answer[0] === '='
   };
