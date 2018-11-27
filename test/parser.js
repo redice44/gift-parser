@@ -21,6 +21,10 @@ describe('parser', () => {
     expect(parser(questions.valid.simpleDesc.single.questions)).to.deep
       .equal(questions.valid.simpleDesc.single.results);
   });
+  it('should parse a set of Matching questions', () => {
+    expect(parser(questions.valid.simpleMatch.single.questions)).to.deep
+      .equal(questions.valid.simpleMatch.single.results);
+  });
 });
 
 describe('parseQuestion()', () => {
@@ -32,5 +36,8 @@ describe('parseQuestion()', () => {
   });
   it('should correctly classify and parse Description questions', () => {
     questions.valid.simpleDesc.set.forEach(testValid);
+  });
+  it('should correctly classify and parse Matching questions', () => {
+    questions.valid.simpleMatch.set.forEach(testValid);
   });
 });

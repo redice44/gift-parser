@@ -26,7 +26,13 @@ const parseQuestion = question => {
     }
   }
   const answers = splitAnswers(answerString).map(evaluateAnswer);
-  const type = classifyAnswers(answers);
+  let type;
+  if (answers[0].type) {
+    type = answers[0].type;
+    answers.forEach(answer => { delete answer.type; });
+  } else {
+    type = classifyAnswers(answers);
+  }
   return { title, body, answers, type };
 };
   

@@ -1,20 +1,39 @@
+const QUESTION_TYPES = require('./constants/questionTypes');
+
 const trueRegex = /^T$|^TRUE$/;
 const falseRegex = /^F$|^FALSE$/;
+const matchRegex = /->/;
 const weightRegex = /^%(-?\d+)%/;
+const matchAnswer = answer => {
+  const parts = answer.split(matchRegex);
+  const key = parts[0].substr(1).trim();
+  const value = parts[1].trim();
+  return {
+    text: null,
+    correct: null,
+    value: 100,
+    match: {
+      [key]: value
+    },
+    type: QUESTION_TYPES.MATCH
+  };
+};
+const tfAnswer = isCorrect => ({
+  text: null,
+  correct: isCorrect,
+  value: isCorrect ? 100 : 0,
+  type: QUESTION_TYPES.TF
+});
+
 const evaluateAnswer = answer => {
   if (trueRegex.test(answer)) {
-    return {
-      text: null,
-      correct: true,
-      value: 100
-    };
+    return tfAnswer(true);
   }
   if (falseRegex.test(answer)) {
-    return {
-      text: null,
-      correct: false,
-      value: 0
-    };
+    return tfAnswer(false);
+  }
+  if (answer[0] === '=' && matchRegex.test(answer)) {
+    return matchAnswer(answer);
   }
   const result = {
     correct: answer[0] === '='

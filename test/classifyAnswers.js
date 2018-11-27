@@ -9,9 +9,6 @@ const testValidAnswers = (answers, type) => {
 const testValidMCAnswers = answers => {
   testValidAnswers(answers, QUESTION_TYPES.MC);
 };
-const testValidTFAnswers = answers => {
-  testValidAnswers(answers, QUESTION_TYPES.TF);
-};
 
 describe('classifyAnswer()', () => {
   it('should classify MC answers', () => {
@@ -43,19 +40,5 @@ describe('classifyAnswer()', () => {
         value: 0
       }]
     ].forEach(testValidMCAnswers);
-  });
-  it('should classify TF answers', () => {
-    [
-      [{
-        text: null,
-        correct: true,
-        value: 100
-      }],
-      [{
-        text: null,
-        correct: false,
-        value: 0
-      }]
-    ].forEach(testValidTFAnswers);
   });
 });
