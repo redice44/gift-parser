@@ -34,6 +34,6 @@ describe('splitQuestions()', () => {
     questionSet.forEach(testQuestion);
   });
   it('should separate example question set', () => {
-    expect(splitQuestions(removeComments(questions.valid.exampleSet)).length).to.equal(40);
+    expect(splitQuestions(removeComments(questions.valid.exampleSet.questions)).length).to.equal(40);
   });
 });

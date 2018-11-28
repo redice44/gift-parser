@@ -1,4 +1,9 @@
-module.exports = `//  EXAMPLE QUESTIONS for the GIFT import filter
+const ANSWER_BLANKS = require('../../../src/constants/answerBlanks');
+const QUESTION_TYPES = require('../../../src/constants/questionTypes');
+
+module.exports = {
+  questions:
+`//  EXAMPLE QUESTIONS for the GIFT import filter
 //  by Paul Tsuchido Shew, January 2004.
 
 //-----------------------------------------//
@@ -179,4 +184,597 @@ When was Ulysses S. Grant born? {#
      =%50%1822:2  #He was born in 1822.
                   You get 50% credit for being close.
 }
-`;
+`,
+  results: [{
+    title: null,
+    body: "Who's buried in Grant's tomb?",
+    answers: [{
+      text: 'Grant',
+      correct: false,
+      weight: 0
+    }, {
+      text: 'Jefferson',
+      correct: false,
+      weight: 0
+    }, {
+      text: 'no one',
+      correct: true,
+      weight: 100
+    }],
+    type: QUESTION_TYPES.MC
+  }, {
+    title: null,
+    body: `Grant is${ANSWER_BLANKS}in Grant's tomb.`,
+    answers: [{
+      text: 'buried',
+      correct: false,
+      weight: 0
+    }, {
+      text: 'entombed',
+      correct: true,
+      weight: 100
+    }, {
+      text: 'living',
+      correct: false,
+      weight: 0
+    }],
+    hasBlank: true,
+    type: QUESTION_TYPES.MC
+  }, {
+    title: null,
+    body: "Grant is buried in Grant's tomb.",
+    answers: [{
+      correct: false
+    }],
+    type: QUESTION_TYPES.TF
+  }, {
+    title: null,
+    body: "Who's buried in Grant's tomb?",
+    answers: [{
+      text: 'no one',
+      correct: true,
+      weight: 100
+    }, {
+      text: 'nobody',
+      correct: true,
+      weight: 100
+    }],
+    type: QUESTION_TYPES.SHORT
+  }, {
+    title: null,
+    body: 'When was Ulysses S. Grant born?',
+    answers: [{
+      value: 1822,
+      range: 1
+    }],
+    type: QUESTION_TYPES.NUMERIC
+  }, {
+    title: null,
+    body: "Who's buried in Grant's tomb?",
+    answers: [{
+      text: 'Grant',
+      correct: false,
+      weight: 0
+    }, {
+      text: 'Jefferson',
+      correct: false,
+      weight: 0
+    }, {
+      text: 'no one',
+      correct: true,
+      weight: 100
+    }],
+    type: QUESTION_TYPES.MC
+  }, {
+    title: null,
+    body: `Grant is${ANSWER_BLANKS}in Grant's tomb.`,
+    answers: [{
+      text: 'buried',
+      correct: false,
+      weight: 0
+    }, {
+      text: 'entombed',
+      correct: true,
+      weight: 100
+    }, {
+      text: 'living',
+      correct: false,
+      weight: 0
+    }],
+    hasBlank: true,
+    type: QUESTION_TYPES.MC
+  }, {
+    title: null,
+    body: `The American holiday of Thanksgiving is celebrated on the${ANSWER_BLANKS}Thursday of November.`,
+    answers: [{
+      text: 'second',
+      correct: false,
+      weight: 0
+    }, {
+      text: 'third',
+      correct: false,
+      weight: 0
+    }, {
+      text: 'fourth',
+      correct: true,
+      weight: 100
+    }],
+    hasBlank: true,
+    type: QUESTION_TYPES.MC
+  }, {
+    title: null,
+    body: 'Japanese characters originally came from what country?',
+    answers: [{
+      text: 'India',
+      correct: false,
+      weight: 0
+    }, {
+      text: 'China',
+      correct: true,
+      weight: 100
+    }, {
+      text: 'Korea',
+      correct: false,
+      weight: 0
+    }, {
+      text: 'Egypt',
+      correct: false,
+      weight: 0
+    }],
+    type: QUESTION_TYPES.MC
+  }, {
+    title: null,
+    body: "Who's buried in Grant's tomb?",
+    answers: [{
+      text: 'no one',
+      correct: true,
+      weight: 100
+    }, {
+      text: 'nobody',
+      correct: true,
+      weight: 100
+    }],
+    type: QUESTION_TYPES.SHORT
+  }, {
+    title: null,
+    body: `Two plus two equals${ANSWER_BLANKS}.`,
+    answers: [{
+      text: 'four',
+      correct: true,
+      weight: 100
+    }, {
+      text: '4',
+      correct: true,
+      weight: 100
+    }],
+    hasBlank: true,
+    type: QUESTION_TYPES.SHORT
+  }, {
+    title: null,
+    body: "Grant is buried in Grant's tomb.",
+    answers: [{
+      correct: false
+    }],
+    type: QUESTION_TYPES.TF
+  }, {
+    title: null,
+    body: 'The sun rises in the east.',
+    answers: [{
+      correct: true
+    }],
+    type: QUESTION_TYPES.TF
+  }, {
+    title: null,
+    body: 'Matching Question.',
+    answers: [{
+      match: {
+        subquestion1: 'subanswer1'
+      }
+    }, {
+      match: {
+        subquestion2: 'subanswer2'
+      }
+    }, {
+       match: {
+        subquestion3: 'subanswer3'
+      }
+    }],
+    type: QUESTION_TYPES.MATCH
+  }, {
+    title: null,
+    body: 'Match the following countries with their corresponding capitals.',
+    answers: [{
+      match: {
+        Canada: 'Ottawa'
+      }
+    }, {
+      match: {
+        Italy: 'Rome'
+      }
+    }, {
+      match: {
+        Japan: 'Tokyo'
+      }
+    }, {
+      match: {
+        India: 'New Delhi'
+      }
+    }],
+    type: QUESTION_TYPES.MATCH
+  }, {
+    title: null,
+    body: 'When was Ulysses S. Grant born?',
+    answers: [{
+      value: 1822
+    }],
+    type: QUESTION_TYPES.NUMERIC
+  }, {
+    title: null,
+    body: `What is the value of pi (to 3 decimal places)?${ANSWER_BLANKS}.`,
+    answers: [{
+      value: 3.1415,
+      range: 0.0005
+    }],
+    hasBlank: true,
+    type: QUESTION_TYPES.NUMERIC
+  }, {
+    title: null,
+    body: `What is the value of pi (to 3 decimal places)?${ANSWER_BLANKS}.`,
+    answers: [{
+      min: 3.141,
+      max: 3.142
+    }],
+    hasBlank: true,
+    type: QUESTION_TYPES.NUMERIC
+  }, {
+    title: null,
+    body: 'When was Ulysses S. Grant born?',
+    answers: [{
+      value: 1822,
+      range: 0
+    }, {
+      value: 1822,
+      range: 2,
+      weight: 50
+    }],
+    type: QUESTION_TYPES.NUMERIC
+  }, {
+    title: null,
+    body: "What's 2 plus 2?",
+    answers: [{
+      value: 4
+    }],
+    type: QUESTION_TYPES.NUMERIC
+  }, {
+    title: 'Kanji Origins',
+    body: 'Japanese characters originally came from what country?',
+    answers: [{
+      text: 'China',
+      correct: true,
+      weight: 100
+    }],
+    type: QUESTION_TYPES.SHORT
+  }, {
+    title: 'Thanksgiving Date',
+    body: `The American holiday of Thanksgiving is celebrated on the${ANSWER_BLANKS}Thursday of November.`,
+    answers: [{
+      text: 'second',
+      correct: false,
+      weight: 0
+    }, {
+      text: 'third',
+      correct: false,
+      weight: 0
+    }, {
+      text: 'fourth',
+      correct: true,
+      weight: 100
+    }],
+    hasBlank: true,
+    type: QUESTION_TYPES.MC
+  }, {
+    title: null,
+    body: "What's the answer to this multiple-choice question?",
+    answers: [{
+      text: 'wrong answer',
+      correct: false,
+      weight: 0,
+      feedback: 'feedback comment on the wrong answer'
+    }, {
+      text: 'another wrong answer',
+      correct: false,
+      weight: 0,
+      feedback: 'feedback comment on this wrong answer'
+    }, {
+      text: 'right answer',
+      correct: true,
+      weight: 100,
+      feedback: 'Very good!'
+    }],
+    type: QUESTION_TYPES.MC
+  }, {
+    title: null,
+    body: "Who's buried in Grant's tomb?",
+    answers: [{
+      text: 'no one',
+      correct: true,
+      weight: 100,
+      feedback: 'excellent answer!'
+    }, {
+      text: 'nobody',
+      correct: true,
+      weight: 100,
+      feedback: 'excellent answer!'
+    }],
+    type: QUESTION_TYPES.SHORT
+  }, {
+    title: null,
+    body: "Grant is buried in Grant's tomb.",
+    answers: [{
+      correct: false,
+      feedback: "No one is buried in Grant's tomb."
+    }],
+    type: QUESTION_TYPES.TF
+  }, {
+    title: null,
+    body: 'Difficult question.',
+    answers: [{
+      text: 'wrong answer',
+      correct: false,
+      weight: 0
+    }, {
+      text: 'half credit answer',
+      correct: false,
+      weight: 50
+    }, {
+      text: 'full credit answer',
+      correct: true,
+      weight: 100
+    }],
+    type: QUESTION_TYPES.MC
+  }, {
+    title: "Jesus' hometown",
+    body: `Jesus Christ was from${ANSWER_BLANKS}.`,
+    answers: [{
+      text: 'Jerusalem',
+      correct: false,
+      weight: 0,
+      feedback: 'This was an important city, but the wrong answer.'
+    }, {
+      text: 'Bethlehem',
+      correct: false,
+      weight: 25,
+      feedback: 'He was born here, but not raised here.'
+    }, {
+      text: 'Galilee',
+      correct: false,
+      weight: 50,
+      feedback: 'You need to be more specific.'
+    }, {
+      text: 'Nazareth',
+      correct: true,
+      weight: 100,
+      feedback: "Yes! That's right!"
+    }],
+    hasBlank: true,
+    type: QUESTION_TYPES.MC
+  }, {
+    title: "Jesus' hometown",
+    body: 'Jesus Christ was from',
+    answers: [{
+      text: 'Nazareth',
+      correct: true,
+      weight: 100,
+      feedback: "Yes! That's right!"
+    }, {
+      text: 'Nazereth',
+      correct: true,
+      weight: 75,
+      feedback: 'Right, but misspelled.'
+    }, {
+      text: 'Bethlehem',
+      correct: true,
+      weight: 25,
+      feedback: 'He was born here, but not raised here.'
+    }],
+    type: QUESTION_TYPES.SHORT
+  }, {
+    title: null,
+    body: "What two people are entombed in Grant's tomb?",
+    answers: [{
+      text: 'No one',
+      correct: false,
+      weight: 0
+    }, {
+      text: 'Grant',
+      correct: false,
+      weight: 50
+    }, {
+      text: "Grant's wife",
+      correct: false,
+      weight: 50
+    }, {
+      text: "Grant's father",
+      correct: false,
+      weight: 0
+    }],
+    type: QUESTION_TYPES.MC
+  }, {
+    title: null,
+    body: "What two people are entombed in Grant's tomb?",
+    answers: [{
+      text: 'No one',
+      correct: false,
+      weight: -50
+    }, {
+      text: 'Grant',
+      correct: false,
+      weight: 50
+    }, {
+      text: "Grant's wife",
+      correct: false,
+      weight: 50
+    }, {
+      text: "Grant's father",
+      correct: false,
+      weight: -50
+    }],
+    type: QUESTION_TYPES.MC
+  }, {
+    title: null,
+    body: "Who's buried in Grant's tomb?",
+    answers: [{
+      text: 'Grant',
+      correct: false,
+      weight: 0
+    }, {
+      text: 'Jefferson',
+      correct: false,
+      weight: 0
+    }, {
+      text: 'no one',
+      correct: true,
+      weight: 100
+    }],
+    type: QUESTION_TYPES.MC
+  }, {
+    title: null,
+    body: `Grant is${ANSWER_BLANKS}in Grant's tomb.`,
+    answers: [{
+      text: 'buried',
+      correct: false,
+      weight: 0
+    }, {
+      text: 'entombed',
+      correct: true,
+      weight: 100
+    }, {
+      text: 'living',
+      correct: false,
+      weight: 0
+    }],
+    hasBlank: true,
+    type: QUESTION_TYPES.MC
+  }, {
+    title: null,
+    body: "Grant is buried in Grant's tomb.",
+    answers: [{
+      correct: false
+    }],
+    type: QUESTION_TYPES.TF
+  }, {
+    title: null,
+    body: "Who's buried in Grant's tomb?",
+    answers: [{
+      text: 'no one',
+      correct: true,
+      weight: 100
+    }, {
+      text: 'nobody',
+      correct: true,
+      weight: 100
+    }],
+    type: QUESTION_TYPES.SHORT
+  }, {
+    title: null,
+    body: 'When was Ulysses S. Grant born?',
+    answers: [{
+      value: 1822,
+      range: 5
+    }],
+    type: QUESTION_TYPES.NUMERIC
+  }, {
+    title: null,
+    body: 'Match the following countries with their corresponding capitals.',
+    answers: [{
+      match: {
+        Canada: 'Ottawa'
+      }
+    }, {
+      match: {
+        Italy: 'Rome'
+      }
+    }, {
+      match: {
+        Japan: 'Tokyo'
+      }
+    }],
+    type: QUESTION_TYPES.MATCH
+  }, {
+    title: "Grant's Tomb",
+    body: `Grant is${ANSWER_BLANKS}in Grant's tomb.`,
+    answers: [{
+      text: 'buried',
+      correct: false,
+      weight: 0,
+      feedback: 'No one is buried there.'
+    }, {
+      text: 'entombed',
+      correct: true,
+      weight: 100,
+      feedback: 'Right answer!'
+    }, {
+      text: 'living',
+      correct: false,
+      weight: 0,
+      feedback: 'We hope not!'
+    }],
+    hasBlank: true,
+    type: QUESTION_TYPES.MC
+  }, {
+    title: null,
+    body: 'Difficult multiple choice question.',
+    answers: [{
+      text: 'wrong answer',
+      correct: false,
+      weight: 0,
+      feedback: 'comment on wrong answer'
+    }, {
+      text: 'half credit answer',
+      correct: false,
+      weight: 50,
+      feedback: 'comment on answer'
+    }, {
+      text: 'full credit answer',
+      correct: true,
+      weight: 100,
+      feedback: 'well done!'
+    }],
+    type: QUESTION_TYPES.MC
+  }, {
+    title: "Jesus' hometown (Short answer ex.)",
+    body: `Jesus Christ was from${ANSWER_BLANKS}.`,
+    answers: [{
+      text: 'Nazareth',
+      correct: true,
+      weight: 100,
+      feedback: "Yes! That's right!"
+    }, {
+      text: 'Nazereth',
+      correct: true,
+      weight: 75,
+      feedback: 'Right, but misspelled.'
+    }, {
+      text: 'Bethlehem',
+      correct: true,
+      weight: 25,
+      feedback: 'He was born here, but not raised here.'
+    }],
+    hasBlank: true,
+    type: QUESTION_TYPES.SHORT
+  }, {
+    title: 'Numerical example',
+    body: 'When was Ulysses S. Grant born?',
+    answers: [{
+      value: 1822,
+      range: 0,
+      feedback: 'Correct! 100% credit'
+    }, {
+      value: 1822,
+      range: 2,
+      weight: 50,
+      feedback: 'He was born in 1822. You get 50% credit for being close.'
+    }],
+    type: QUESTION_TYPES.NUMERIC
+  }]
+};

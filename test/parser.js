@@ -41,6 +41,10 @@ describe('parser', () => {
     expect(parser(questions.valid.simpleBlanks.single.questions)).to.deep
       .equal(questions.valid.simpleBlanks.single.results);
   });
+  it('should parse the example question set', () => {
+    expect(parser(questions.valid.exampleSet.questions)).to.deep
+      .equal(questions.valid.exampleSet.results);
+  });
 });
 
 describe('parseQuestion()', () => {
