@@ -35,7 +35,7 @@ const parseQuestion = question => {
   if (isNumeric(answerString)) {
     return {
       ...result,
-      answers: splitAnswers(answerString.substr(1)).map(evaluateNumericAnswer),
+      answers: splitAnswers(answerString.substr(1).trim()).map(evaluateNumericAnswer),
       type: QUESTION_TYPES.NUMERIC
     };
   }

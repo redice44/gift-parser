@@ -48,12 +48,43 @@ const question004 = {
   }
 };
 
+const question005 = {
+  question: 'body{T#yes}',
+  result: {
+    title: null,
+    body: 'body',
+    answers: [{
+      correct: true,
+      feedback: 'yes'
+    }],
+    type: QUESTION_TYPES.TF
+  }
+};
+
+const question006 = {
+  question: 'body{T#incorrect#correct}',
+  result: {
+    title: null,
+    body: 'body',
+    answers: [{
+      correct: true,
+      feedback: [
+        'incorrect',
+        'correct'
+      ]
+    }],
+    type: QUESTION_TYPES.TF
+  }
+};
+
 module.exports = {
   set: [
     question001,
     question002,
     question003,
-    question004
+    question004,
+    question005,
+    question006
   ],
   single: {
     questions:
@@ -63,12 +94,18 @@ ${question002.question}
 
 ${question003.question}
 
-${question004.question}`,
+${question004.question}
+
+${question005.question}
+
+${question006.question}`,
     results: [
       question001.result,
       question002.result,
       question003.result,
-      question004.result
+      question004.result,
+      question005.result,
+      question006.result
     ]
   }
 };

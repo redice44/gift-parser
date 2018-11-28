@@ -1,6 +1,14 @@
+const feedbackRegex = /#/;
 const minMaxRegex = /\.\./;
 const rangeRegex = /:/;
 const weightRegex = /%(-?\d+)%/;
+const withFeedback = (feedback, answer) => {
+  if (!feedback) {
+    return answer;
+  }
+
+  return { ...answer, feedback };
+};
 
 const evaluateNumeric = answer => {
   if (minMaxRegex.test(answer)) {
@@ -21,19 +29,25 @@ const evaluateNumeric = answer => {
 };
 
 const evaluateNumericAnswer = answer => {
-  let modAnswer = answer;
-  if (modAnswer[0] === '=') {
-    modAnswer = answer.substr(1)
-    if (weightRegex.test(modAnswer)) {
-      const weight = parseInt(modAnswer.match(weightRegex)[1]);
-      modAnswer = modAnswer.replace(weightRegex, '');
-      const result = evaluateNumeric(modAnswer);
+  let _answer = answer;
+  let feedback;
+  if (feedbackRegex.test(_answer)) {
+    const answerSplit = _answer.split(feedbackRegex).map(d => d.trim());
+    _answer = answerSplit[0];
+    feedback = answerSplit[1];
+  }
+  if (_answer[0] === '=') {
+    _answer = _answer.substr(1);
+    if (weightRegex.test(_answer)) {
+      const weight = parseInt(_answer.match(weightRegex)[1]);
+      _answer = _answer.replace(weightRegex, '');
+      const result = evaluateNumeric(_answer);
       result.weight = weight;
-      return result;
+      return withFeedback(feedback, result);
     }
   }
 
-  return evaluateNumeric(modAnswer);
+  return withFeedback(feedback, evaluateNumeric(_answer));
 };
 
 module.exports = evaluateNumericAnswer;

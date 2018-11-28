@@ -4,6 +4,7 @@ const trueRegex = /^T$|^TRUE$/;
 const falseRegex = /^F$|^FALSE$/;
 const matchRegex = /->/;
 const weightRegex = /^%(-?\d+)%/;
+const feedbackRegex = /#/;
 const matchAnswer = answer => {
   const parts = answer.split(matchRegex);
   const key = parts[0].substr(1).trim();
@@ -19,37 +20,51 @@ const tfAnswer = isCorrect => ({
   correct: isCorrect,
   type: QUESTION_TYPES.TF
 });
+const withFeedback = (feedback, answer) => {
+  if (!feedback) {
+    return answer;
+  }
+
+  return { ...answer, feedback };
+};
 
 const evaluateAnswer = answer => {
-  if (trueRegex.test(answer)) {
-    return tfAnswer(true);
+  let _answer = answer;
+  let feedback;
+  if (feedbackRegex.test(_answer)) {
+    const answerSplit = _answer.split(feedbackRegex).map(d => d.trim());
+    _answer = answerSplit[0];
+    feedback = answerSplit.length > 2 ? answerSplit.slice(1) : answerSplit[1];
   }
-  if (falseRegex.test(answer)) {
-    return tfAnswer(false);
+  if (trueRegex.test(_answer)) {
+    return withFeedback(feedback, tfAnswer(true));
   }
-  if (answer[0] === '=' && matchRegex.test(answer)) {
-    return matchAnswer(answer);
+  if (falseRegex.test(_answer)) {
+    return withFeedback(feedback, tfAnswer(false));
   }
-  if (answer.length === 0) {
+  if (_answer[0] === '=' && matchRegex.test(_answer)) {
+    return withFeedback(feedback, matchAnswer(_answer));
+  }
+  if (_answer.length === 0) {
     return {
       type: QUESTION_TYPES.ESSAY
     };
   }
   const result = {
-    correct: answer[0] === '='
+    correct: _answer[0] === '='
   };
-  let modAnswer = answer.substr(1).trim();
+  _answer = _answer.substr(1).trim();
 
-  if (weightRegex.test(modAnswer)) {
-    result.weight = parseInt(modAnswer.match(weightRegex)[1]);
-    modAnswer = modAnswer.replace(weightRegex, '');
+  if (weightRegex.test(_answer)) {
+    result.weight = parseInt(_answer.match(weightRegex)[1]);
+    _answer = _answer.replace(weightRegex, '');
   } else {
     result.weight = result.correct ? 100 : 0;
   }
 
-  result.text = modAnswer.trim();
+  result.text = _answer.trim();
 
-  return result;
+  return withFeedback(feedback, result);
 };
 
 module.exports = evaluateAnswer;

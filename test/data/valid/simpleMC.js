@@ -44,19 +44,48 @@ const question002 = {
   }
 };
 
+const question003 = {
+  question: 'body{=ans#correct~%50%wrong#almost~%-50%incorrect#Completely Incorrect}',
+  result: {
+    title: null,
+    body: 'body',
+    answers: [{
+      text: 'ans',
+      correct: true,
+      weight: 100,
+      feedback: 'correct'
+    }, {
+      text: 'wrong',
+      correct: false,
+      weight: 50,
+      feedback: 'almost'
+    }, {
+      text: 'incorrect',
+      correct: false,
+      weight: -50,
+      feedback: 'Completely Incorrect'
+    }],
+    type: QUESTION_TYPES.MC
+  }
+};
+
 module.exports = {
   set: [
     question001,
-    question002
+    question002,
+    question003
   ],
   single: {
     questions:
 `${question001.question}
     
-${question002.question}`,
+${question002.question}
+
+${question003.question}`,
     results: [
       question001.result,
-      question002.result
+      question002.result,
+      question003.result
     ]
   }
 };

@@ -59,6 +59,14 @@ describe('evaluateAnswer()', () => {
         correct: false,
         weight: -50
       }
+    }, {
+      text: '~ %-50% wrong#incorrect',
+      results: {
+        text: 'wrong',
+        correct: false,
+        weight: -50,
+        feedback: 'incorrect'
+      }
     }].forEach(testValidAnswer);
   });
   it('should evaluate the TF answer', () => {
@@ -69,13 +77,20 @@ describe('evaluateAnswer()', () => {
         type: QUESTION_TYPES.TF
       }
     }, {
+      text: 'T#feedback please',
+      results: {
+        correct: true,
+        feedback: 'feedback please',
+        type: QUESTION_TYPES.TF
+      }
+    }, {
       text: 'TRUE',
       results: {
         correct: true,
         type: QUESTION_TYPES.TF
       }
     }, {
-      text: 'F',
+     text: 'F',
       results: {
         correct: false,
         type: QUESTION_TYPES.TF
@@ -86,7 +101,14 @@ describe('evaluateAnswer()', () => {
         correct: false,
         type: QUESTION_TYPES.TF
       }
-    }].forEach(testValidAnswer);
+    }, {
+      text: 'FALSE # More Feedback',
+      results: {
+        correct: false,
+        feedback: 'More Feedback',
+        type: QUESTION_TYPES.TF
+      }
+     }].forEach(testValidAnswer);
   });
   it('should evaluate the matching answer', () => {
     [{
@@ -111,6 +133,15 @@ describe('evaluateAnswer()', () => {
         match: {
           ans: 'pair'
         },
+        type: QUESTION_TYPES.MATCH
+      }
+    }, {
+      text: '= ans -> pair # Feedback',
+      results: {
+        match: {
+          ans: 'pair'
+        },
+        feedback: 'Feedback',
         type: QUESTION_TYPES.MATCH
       }
     }].forEach(testValidAnswer);
