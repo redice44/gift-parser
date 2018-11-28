@@ -1,6 +1,7 @@
 const QUESTION_TYPES = require('./constants/questionTypes');
 const classifyAnswers = require('./classifyAnswers');
 const evaluateAnswer = require('./evaluateAnswer');
+const evaluateNumericAnswer = require('./evaluateNumericAnswer');
 const getAnswers = require('./getQuestionAnswers');
 const getBody = require('./getQuestionBody');
 const getTitle = require('./getQuestionTitle');
@@ -9,38 +10,49 @@ const splitAnswers = require('./splitAnswers');
 const splitQuestions = require('./splitQuestions');
 
 const cleanAndSplit = input => splitQuestions(removeComments(input));
+const isDescription = answerString => answerString === null;
+const isEssay = type => type === QUESTION_TYPES.ESSAY;
+const isNumeric = answerString => answerString[0] === '#';
+const noAnswers = (title, body, type) => ({ title, body, type });
+const withAnswers = (title, body, answers, type) => ({ title, body, answers, type });
 const parseQuestion = question => {
   const title = getTitle(question);
   let body;
   try {
     body = getBody(question);
   } catch (error) {
-
+    // Manage bad input gracefully.
   }
   const answerString = getAnswers(question);
-  if (answerString === null) {
-    return {
+  if (isDescription(answerString)) {
+    return noAnswers(title, body, QUESTION_TYPES.DESCRIPTION);
+  }
+  if (isNumeric(answerString)) {
+    return withAnswers(
       title,
       body,
-      type: QUESTION_TYPES.DESCRIPTION
-    }
+      splitAnswers(answerString.substr(1)).map(evaluateNumericAnswer),
+      QUESTION_TYPES.NUMERIC
+    );
   }
   const answers = splitAnswers(answerString).map(evaluateAnswer);
-  let type;
   if (answers[0].type) {
-    if (answers[0].type === QUESTION_TYPES.ESSAY) {
-      return {
-        title,
-        body,
-        type: QUESTION_TYPES.ESSAY
-      };
+    if (isEssay(answers[0].type)) {
+      return noAnswers(title, body, QUESTION_TYPES.ESSAY);
     }
-    type = answers[0].type;
-    answers.forEach(answer => { delete answer.type; });
-  } else {
-    type = classifyAnswers(answers);
+    const type = answers[0].type;
+    return withAnswers(
+      title,
+      body,
+      answers.map(answer => {
+        delete answer.type;
+        return answer;
+      }),
+      type
+    );
   }
-  return { title, body, answers, type };
+
+  return withAnswers(title, body, answers, classifyAnswers(answers));
 };
   
 const parser = input => cleanAndSplit(input).map(parseQuestion);

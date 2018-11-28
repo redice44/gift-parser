@@ -33,6 +33,10 @@ describe('parser', () => {
     expect(parser(questions.valid.simpleShort.single.questions)).to.deep
       .equal(questions.valid.simpleShort.single.results);
   });
+  it('should parse a set of Numeric questions', () => {
+    expect(parser(questions.valid.simpleNumeric.single.questions)).to.deep
+      .equal(questions.valid.simpleNumeric.single.results);
+  });
 });
 
 describe('parseQuestion()', () => {
@@ -53,5 +57,8 @@ describe('parseQuestion()', () => {
   });
   it('should correctly classify and parse Short Answer questions', () => {
     questions.valid.simpleShort.set.forEach(testValid);
+  });
+  it('should correctly classify and parse Numeric questions', () => {
+    questions.valid.simpleNumeric.set.forEach(testValid);
   });
 });

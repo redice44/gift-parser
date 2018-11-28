@@ -4,6 +4,7 @@ module.exports = {
   simpleEssay: require('./simpleEssay'),
   simpleMatch: require('./simpleMatch'),
   simpleMCs: require('./simpleMC'),
+  simpleNumeric: require('./simpleNumeric'),
   simpleShort: require('./simpleShort'),
   simpleTFs: require('./simpleTF')
 };
