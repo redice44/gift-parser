@@ -19,10 +19,13 @@ const getQuestionBody = question => {
     .filter(d => d);
 
   if (answerPieces.length > 1) {
-    return answerPieces.join(ANSWER_BLANKS);
+    return {
+      body: answerPieces.join(ANSWER_BLANKS),
+      hasBlank: true
+    };
   }
 
-  return answerPieces[0];
+  return { body: answerPieces[0] };
 };
 
 module.exports = getQuestionBody;

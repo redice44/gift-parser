@@ -37,6 +37,10 @@ describe('parser', () => {
     expect(parser(questions.valid.simpleNumeric.single.questions)).to.deep
       .equal(questions.valid.simpleNumeric.single.results);
   });
+  it('should parse a set of Fill in the Blank questions', () => {
+    expect(parser(questions.valid.simpleBlanks.single.questions)).to.deep
+      .equal(questions.valid.simpleBlanks.single.results);
+  });
 });
 
 describe('parseQuestion()', () => {
@@ -60,5 +64,8 @@ describe('parseQuestion()', () => {
   });
   it('should correctly classify and parse Numeric questions', () => {
     questions.valid.simpleNumeric.set.forEach(testValid);
+  });
+  it('should correctly classify and parse Fill in the Blank questions', () => {
+    questions.valid.simpleBlanks.set.forEach(testValid);
   });
 });

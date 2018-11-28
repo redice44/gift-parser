@@ -1,5 +1,6 @@
 module.exports = {
   exampleSet: require('./exampleSet'),
+  simpleBlanks: require('./simpleBlanks'),
   simpleDesc: require('./simpleDesc'),
   simpleEssay: require('./simpleEssay'),
   simpleMatch: require('./simpleMatch'),
