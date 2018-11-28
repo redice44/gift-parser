@@ -8,15 +8,15 @@ const question001 = {
     answers: [{
       text: 'ans',
       correct: true,
-      value: 100
+      weight: 100
     }, {
       text: 'wrong',
       correct: false,
-      value: 0
+      weight: 0
     }, {
       text: 'incorrect',
       correct: false,
-      value: 0
+      weight: 0
     }],
     type: QUESTION_TYPES.MC
   }
@@ -30,15 +30,15 @@ const question002 = {
     answers: [{
       text: 'ans',
       correct: true,
-      value: 100
+      weight: 100
     }, {
       text: 'wrong',
       correct: false,
-      value: 50
+      weight: 50
     }, {
       text: 'incorrect',
       correct: false,
-      value: -50
+      weight: -50
     }],
     type: QUESTION_TYPES.MC
   }

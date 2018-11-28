@@ -8,11 +8,11 @@ const question001 = {
     answers: [{
       text: 'ans',
       correct: true,
-      value: 100
+      weight: 100
     }, {
       text: 'ans',
       correct: true,
-      value: 100
+      weight: 100
     }],
     type: QUESTION_TYPES.SHORT
   }
@@ -26,7 +26,7 @@ const question002 = {
     answers: [{
       text: 'ans',
       correct: true,
-      value: 100
+      weight: 100
     }],
     type: QUESTION_TYPES.SHORT
   }
@@ -40,11 +40,11 @@ const question003 = {
     answers: [{
       text: 'ans',
       correct: true,
-      value: 100
+      weight: 100
     }, {
       text: 'ans',
       correct: true,
-      value: 100
+      weight: 100
     }],
     type: QUESTION_TYPES.SHORT
   }

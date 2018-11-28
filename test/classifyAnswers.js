@@ -19,28 +19,28 @@ describe('classifyAnswer()', () => {
       [{
         text: 'ans',
         correct: true,
-        value: 100
+        weight: 100
       }, {
         text: 'wrong',
         correct: false,
-        value: 0
+        weight: 0
       }, {
         text: 'wrong',
         correct: false,
-        value: 0
+        weight: 0
       }],
       [{
         text: 'ans',
         correct: true,
-        value: 100
+        weight: 100
       }, {
         text: 'wrong',
         correct: false,
-        value: 50
+        weight: 50
       }, {
         text: 'wrong',
         correct: false,
-        value: 0
+        weight: 0
       }]
     ].forEach(testValidMCAnswers);
   });
@@ -49,16 +49,16 @@ describe('classifyAnswer()', () => {
       [{
         text: 'ans',
         correct: true,
-        value: 100
+        weight: 100
       }, {
         text: 'ans',
         correct: true,
-        value: 100
+        weight: 100
       }],
       [{
         text: 'ans',
         correct: true,
-        value: 100
+        weight: 100
       }]
     ].forEach(testValidShortAnswers);
   });
