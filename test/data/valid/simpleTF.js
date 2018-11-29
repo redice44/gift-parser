@@ -77,6 +77,18 @@ const question006 = {
   }
 };
 
+const question007 = {
+  question: 'body<font size\="2">hello</font>{T}',
+  result: {
+    title: null,
+    body: 'body<font size\="2">hello</font>',
+    answers: [{
+      correct: true
+    }],
+    type: QUESTION_TYPES.TF
+  }
+};
+
 module.exports = {
   set: [
     question001,
@@ -84,7 +96,8 @@ module.exports = {
     question003,
     question004,
     question005,
-    question006
+    question006,
+    question007
   ],
   single: {
     questions:
@@ -98,14 +111,17 @@ ${question004.question}
 
 ${question005.question}
 
-${question006.question}`,
+${question006.question}
+
+${question007.question}`,
     results: [
       question001.result,
       question002.result,
       question003.result,
       question004.result,
       question005.result,
-      question006.result
+      question006.result,
+      question007.result
     ]
   }
 };
