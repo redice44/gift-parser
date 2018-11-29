@@ -17,10 +17,13 @@ const parseQuestion = question => {
   const result = {};
   result.title = getTitle(question);
   try {
-    const { body, hasBlank } = getBody(question);
+    const { body, format, hasBlank } = getBody(question);
     result.body = body;
     if (hasBlank) {
       result.hasBlank = hasBlank;
+    }
+    if (format) {
+      result.format = format;
     }
   } catch (error) {
     // Manage bad input gracefully.

@@ -1,3 +1,4 @@
+const FORMATS = require('../../../src/constants/formats');
 const QUESTION_TYPES = require('../../../src/constants/questionTypes');
 
 const question001 = {
@@ -78,13 +79,14 @@ const question006 = {
 };
 
 const question007 = {
-  question: 'body<font size\="2">hello</font>{T}',
+  question: '::title::[html]body<font size\="2">hello</font>{T}',
   result: {
-    title: null,
+    title: 'title',
     body: 'body<font size\="2">hello</font>',
     answers: [{
       correct: true
     }],
+    format: FORMATS.html,
     type: QUESTION_TYPES.TF
   }
 };
