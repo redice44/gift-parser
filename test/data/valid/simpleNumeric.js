@@ -147,7 +147,7 @@ const question011 = {
 };
 
 const question012 = {
-  question: 'body{#=1..2=%50%4..2}',
+  question: 'body{#=1..2=%33.33333%4..2}',
   result: {
     title: null,
     body: 'body',
@@ -157,7 +157,7 @@ const question012 = {
     }, {
       min: 2,
       max: 4,
-      weight: 50
+      weight: 33.33333
     }],
     type: QUESTION_TYPES.NUMERIC
   }

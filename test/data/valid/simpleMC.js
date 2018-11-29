@@ -24,7 +24,7 @@ const question001 = {
 };
 
 const question002 = {
-  question: '::title::body{=ans~%50%wrong~%-50%incorrect}',
+  question: '::title::body{=ans~%33.33333%wrong~%-50%incorrect}',
   result: {
     title: 'title',
     body: 'body',
@@ -35,7 +35,7 @@ const question002 = {
     }, {
       text: 'wrong',
       correct: false,
-      weight: 50
+      weight: 33.33333
     }, {
       text: 'incorrect',
       correct: false,

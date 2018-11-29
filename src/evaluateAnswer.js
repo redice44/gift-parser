@@ -3,7 +3,7 @@ const QUESTION_TYPES = require('./constants/questionTypes');
 const trueRegex = /^T$|^TRUE$/;
 const falseRegex = /^F$|^FALSE$/;
 const matchRegex = /->/;
-const weightRegex = /^%(-?\d+)%/;
+const weightRegex = /^%(-?\d+\.?\d*?)%/;
 const feedbackRegex = /#/;
 const matchAnswer = answer => {
   const parts = answer.split(matchRegex);
@@ -56,7 +56,7 @@ const evaluateAnswer = answer => {
   _answer = _answer.substr(1).trim();
 
   if (weightRegex.test(_answer)) {
-    result.weight = parseInt(_answer.match(weightRegex)[1]);
+    result.weight = parseFloat(_answer.match(weightRegex)[1]);
     _answer = _answer.replace(weightRegex, '');
   } else {
     result.weight = result.correct ? 100 : 0;

@@ -1,7 +1,7 @@
 const feedbackRegex = /#/;
 const minMaxRegex = /\.\./;
 const rangeRegex = /:/;
-const weightRegex = /%(-?\d+)%/;
+const weightRegex = /%(-?\d+\.?\d*)%/;
 const withFeedback = (feedback, answer) => {
   if (!feedback) {
     return answer;
@@ -39,7 +39,7 @@ const evaluateNumericAnswer = answer => {
   if (_answer[0] === '=') {
     _answer = _answer.substr(1);
     if (weightRegex.test(_answer)) {
-      const weight = parseInt(_answer.match(weightRegex)[1]);
+      const weight = parseFloat(_answer.match(weightRegex)[1]);
       _answer = _answer.replace(weightRegex, '');
       const result = evaluateNumeric(_answer);
       result.weight = weight;
