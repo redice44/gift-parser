@@ -1,3 +1,4 @@
+const FORMATS = require('../../../src/constants/formats');
 const QUESTION_TYPES = require('../../../src/constants/questionTypes');
 
 const question001 = {
@@ -45,12 +46,12 @@ const question002 = {
 };
 
 const question003 = {
-  question: 'body{=ans#correct~%50%wrong#almost~%-50%incorrect#Completely Incorrect}',
+  question: '[html]body{=<font size\\="2">ans</font>#correct~%50%wrong#almost~%-50%incorrect#Completely Incorrect}',
   result: {
     title: null,
     body: 'body',
     answers: [{
-      text: 'ans',
+      text: '<font size\\="2">ans</font>',
       correct: true,
       weight: 100,
       feedback: 'correct'
@@ -65,6 +66,7 @@ const question003 = {
       weight: -50,
       feedback: 'Completely Incorrect'
     }],
+    format: FORMATS.html,
     type: QUESTION_TYPES.MC
   }
 };
