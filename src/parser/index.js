@@ -1,4 +1,4 @@
-const QUESTION_TYPES = require('./constants/questionTypes');
+const QUESTION_TYPES = require('../constants/questionTypes');
 const classifyAnswers = require('./classifyAnswers');
 const evaluateAnswer = require('./evaluateAnswer');
 const evaluateNumericAnswer = require('./evaluateNumericAnswer');

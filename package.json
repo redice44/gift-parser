@@ -1,12 +1,12 @@
 {
   "name": "@redice44/gift-parser",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": "",
   "main": "src/index.js",
   "scripts": {
     "test": "nyc mocha test",
     "test:report": "nyc report",
-    "test:watch": "nodemon --exec nyc mocha test"
+    "test:watch": "nodemon --exec nyc mocha \"test/**/*.spec.js\""
   },
   "keywords": [],
   "author": "Matt Thomson<mthomson.lee@gmail.com>",

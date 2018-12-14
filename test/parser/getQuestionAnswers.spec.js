@@ -1,7 +1,7 @@
 const expect = require('chai').expect;
 
-const getQuestionAnswers = require('../src/getQuestionAnswers');
-const splitAnswers = require('../src/splitAnswers');
+const getQuestionAnswers = require('../../src/parser/getQuestionAnswers');
+const splitAnswers = require('../../src/parser/splitAnswers');
 
 const testValidAnswers = question => {
   const answerString = getQuestionAnswers(question.text);

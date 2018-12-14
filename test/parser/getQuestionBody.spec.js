@@ -1,7 +1,7 @@
 const expect = require('chai').expect;
 
-const ANSWER_BLANKS = require('../src/constants/answerBlanks');
-const getQuestionBody = require('../src/getQuestionBody');
+const ANSWER_BLANKS = require('../../src/constants/answerBlanks');
+const getQuestionBody = require('../../src/parser/getQuestionBody');
 
 const testValidBody = question => {
   expect(getQuestionBody(question.text)).to.deep.equal(question.results);

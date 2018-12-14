@@ -1,7 +1,7 @@
 const expect = require('chai').expect;
 
-const QUESTION_TYPES = require('../src/constants/questionTypes');
-const classifyAnswer = require('../src/classifyAnswers');
+const QUESTION_TYPES = require('../../src/constants/questionTypes');
+const classifyAnswer = require('../../src/parser/classifyAnswers');
 
 const testValidAnswers = (answers, type) => {
   expect(classifyAnswer(answers)).to.equal(type);

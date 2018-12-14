@@ -1,4 +1,4 @@
-const QUESTION_TYPES = require('./constants/questionTypes');
+const QUESTION_TYPES = require('../constants/questionTypes');
 
 const trueRegex = /^T$|^TRUE$/;
 const falseRegex = /^F$|^FALSE$/;

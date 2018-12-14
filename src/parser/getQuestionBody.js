@@ -1,5 +1,5 @@
-const ANSWER_BLANKS = require('./constants/answerBlanks');
-const FORMATS = require('./constants/formats');
+const ANSWER_BLANKS = require('../constants/answerBlanks');
+const FORMATS = require('../constants/formats');
 
 const answersRegex = /{[\s\S]*}/;
 const formatRegex = /^\[(html|moodle|plain|markdown)\]/;

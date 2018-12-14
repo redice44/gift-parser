@@ -1,9 +1,9 @@
 const expect = require('chai').expect;
 
-const splitQuestions = require('../src/splitQuestions');
-const removeComments = require('../src/removeComments');
+const splitQuestions = require('../../src/parser/splitQuestions');
+const removeComments = require('../../src/parser/removeComments');
 
-const questions = require('./data');
+const questions = require('../data');
 const questionSet = [{
   text: `
 Invalid Question

@@ -1,6 +1,6 @@
 const expect = require('chai').expect;
 
-const removeComments = require('../src/removeComments');
+const removeComments = require('../../src/parser/removeComments');
 
 const questionSet = [{
   text: `

@@ -1,6 +1,6 @@
 const expect = require('chai').expect;
 
-const getQuestionTitle = require('../src/getQuestionTitle');
+const getQuestionTitle = require('../../src/parser/getQuestionTitle');
 
 const testValidTitle = question => {
   expect(getQuestionTitle(question.text)).to.equal(question.title);

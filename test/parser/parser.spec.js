@@ -1,8 +1,8 @@
 const expect = require('chai').expect;
 
-const parser = require('../src/parser');
-const parseQuestion = require('../src/parser').parseQuestion;
-const questions = require('./data');
+const parser = require('../../src/parser');
+const parseQuestion = require('../../src/parser').parseQuestion;
+const questions = require('../data');
 
 const testValid = data => {
   expect(parseQuestion(data.question)).to.deep.equal(data.result);

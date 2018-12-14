@@ -1,7 +1,6 @@
 const expect = require('chai').expect;
 
-const QUESTION_TYPES = require('../src/constants/questionTypes');
-const evaluateNumericAnswer = require('../src/evaluateNumericAnswer');
+const evaluateNumericAnswer = require('../../src/parser/evaluateNumericAnswer');
 
 const testValidAnswer = answer => {
   expect(evaluateNumericAnswer(answer.text)).to.deep.equal(answer.results);

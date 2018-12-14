@@ -1,4 +1,4 @@
-const QUESTION_TYPES = require('./constants/questionTypes');
+const QUESTION_TYPES = require('../constants/questionTypes');
 
 const sumCorrectAnswers = (acc, answer) => acc + (answer.correct ? 1 : 0);
 const sumIncorrectAnswers = (acc, answer) => acc + (answer.correct ? 0 : 1);
