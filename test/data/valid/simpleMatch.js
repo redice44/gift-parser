@@ -6,9 +6,7 @@ const question001 = {
     title: 'title',
     body: 'body',
     answers: [{
-      match: {
-        ans: 'pair'
-      }
+      match: ['ans', 'pair']
     }],
     type: QUESTION_TYPES.MATCH
   }
@@ -20,9 +18,7 @@ const question002 = {
     title: null,
     body: 'body',
     answers: [{
-      match: {
-        ans: 'pair'
-      }
+      match: ['ans', 'pair']
     }],
     type: QUESTION_TYPES.MATCH
   }
@@ -34,13 +30,9 @@ const question003 = {
     title: null,
     body: 'body',
     answers: [{
-      match: {
-        ans: 'pair'
-      }
+      match: ['ans', 'pair']
     }, {
-      match: {
-        foo: 'bar'
-      }
+      match: ['foo', 'bar']
     }],
     type: QUESTION_TYPES.MATCH
   }
@@ -52,13 +44,9 @@ const question004 = {
     title: null,
     body: 'body',
     answers: [{
-      match: {
-        ans: 'pair'
-      }
+      match: ['ans', 'pair']
     }, {
-      match: {
-        foo: 'bar'
-      }
+      match: ['foo', 'bar']
     }],
     type: QUESTION_TYPES.MATCH
   }

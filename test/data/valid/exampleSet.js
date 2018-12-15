@@ -367,38 +367,24 @@ When was Ulysses S. Grant born? {#
     title: null,
     body: 'Matching Question.',
     answers: [{
-      match: {
-        subquestion1: 'subanswer1'
-      }
+      match: ['subquestion1', 'subanswer1']
     }, {
-      match: {
-        subquestion2: 'subanswer2'
-      }
+      match: ['subquestion2', 'subanswer2'] 
     }, {
-       match: {
-        subquestion3: 'subanswer3'
-      }
+       match: ['subquestion3', 'subanswer3']
     }],
     type: QUESTION_TYPES.MATCH
   }, {
     title: null,
     body: 'Match the following countries with their corresponding capitals.',
     answers: [{
-      match: {
-        Canada: 'Ottawa'
-      }
+      match: ['Canada', 'Ottawa']
     }, {
-      match: {
-        Italy: 'Rome'
-      }
+      match: ['Italy', 'Rome']
     }, {
-      match: {
-        Japan: 'Tokyo'
-      }
+      match: ['Japan', 'Tokyo']
     }, {
-      match: {
-        India: 'New Delhi'
-      }
+      match: ['India', 'New Delhi']
     }],
     type: QUESTION_TYPES.MATCH
   }, {
@@ -687,17 +673,11 @@ When was Ulysses S. Grant born? {#
     title: null,
     body: 'Match the following countries with their corresponding capitals.',
     answers: [{
-      match: {
-        Canada: 'Ottawa'
-      }
+      match: ['Canada', 'Ottawa']
     }, {
-      match: {
-        Italy: 'Rome'
-      }
+      match: ['Italy', 'Rome']
     }, {
-      match: {
-        Japan: 'Tokyo'
-      }
+      match: ['Japan', 'Tokyo']
     }],
     type: QUESTION_TYPES.MATCH
   }, {

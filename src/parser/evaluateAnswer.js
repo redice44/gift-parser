@@ -10,9 +10,7 @@ const matchAnswer = answer => {
   const key = parts[0].substr(1).trim();
   const value = parts[1].trim();
   return {
-    match: {
-      [key]: value
-    },
+    match: [key, value],
     type: QUESTION_TYPES.MATCH
   };
 };

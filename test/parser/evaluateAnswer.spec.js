@@ -114,33 +114,25 @@ describe('evaluateAnswer()', () => {
     [{
       text: '=ans -> pair',
       results: {
-        match: {
-          ans: 'pair'
-        },
+        match: ['ans', 'pair'],
         type: QUESTION_TYPES.MATCH
       }
     }, {
       text: '=ans->pair',
       results: {
-        match: {
-          ans: 'pair'
-        },
+        match: ['ans', 'pair'],
         type: QUESTION_TYPES.MATCH
       }
     }, {
       text: '= ans ->  pair',
       results: {
-        match: {
-          ans: 'pair'
-        },
+        match: ['ans', 'pair'],
         type: QUESTION_TYPES.MATCH
       }
     }, {
       text: '= ans -> pair # Feedback',
       results: {
-        match: {
-          ans: 'pair'
-        },
+        match: ['ans', 'pair'],
         feedback: 'Feedback',
         type: QUESTION_TYPES.MATCH
       }
