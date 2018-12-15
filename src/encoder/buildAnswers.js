@@ -48,6 +48,18 @@ const answerFormaters = {
 
       return `${ANSWER_SPACING}=${answer.match[0]}->${answer.match[1]}${feedback}`;
     }).join('\n');
+  },
+  [QUESTION_TYPES.SHORT]: answers => {
+    if (answers.length < 1) {
+      throw new Error(`Invalid ${QUESTION_TYPES.SHORT} answer format.`);
+    }
+    return answers.map(answer => {
+      if (!answer.correct) {
+        throw new Error(`Invalid ${QUESTION_TYPES.SHORT} answer format.`);
+      }
+      let feedback = answer.feedback ? `#${answer.feedback}` : '';
+      return `${ANSWER_SPACING}=${answer.text}${feedback}`;
+    }).join('\n');
   }
 };
 

@@ -154,4 +154,37 @@ describe('buildAnswers()', () => {
 
     });
   });
+  describe(`${QUESTION_TYPES.SHORT} question`, () => {
+    const expectSHORT = answers => expectTo(answers, QUESTION_TYPES.SHORT);
+    const expectSHORTToThrow = answers => expectToThrow(answers, QUESTION_TYPES.SHORT);
+    
+    it('should throw if the format is incorrect', () => {
+      expectSHORTToThrow([]);
+      expectSHORTToThrow([{}]);
+    });
+    it(`should format ${QUESTION_TYPES.SHORT}`, () => {
+      const ans1 = {
+        input: { text: 'ans', correct: true },
+        output: '=ans'
+      };
+      const ans2 = {
+        input: { text: 'answer', correct: true },
+        output: '=answer'
+      };
+      const ansFeedback = {
+        input: { text: 'ans', correct: true, feedback: 'yes' },
+        output: '=ans#yes'
+      };
+
+      expectSHORT([
+        ans1.input,
+        ans2.input,
+        ansFeedback.input
+      ]).equal(buildResults([
+        ans1.output,
+        ans2.output,
+        ansFeedback.output
+      ]));
+    });
+  });
 });
