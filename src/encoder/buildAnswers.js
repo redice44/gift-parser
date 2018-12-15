@@ -35,7 +35,20 @@ const answerFormaters = {
     }).join('\n');
     return answersText;
   },
-  [QUESTION_TYPES.ESSAY]: answers => ''
+  [QUESTION_TYPES.ESSAY]: answers => '',
+  [QUESTION_TYPES.MATCH]: answers => {
+    if (answers.length < 2) {
+      throw new Error(`Invalid ${QUESTION_TYPES.MATCH} answer format.`);
+    }
+    return answers.map(answer => {
+      if (!answer.match || !Array.isArray(answer.match)) {
+        throw new Error(`Invalid ${QUESTION_TYPES.MATCH} answer format.`);
+      }
+      const feedback = answer.feedback ? `#${answer.feedback}` : '';
+
+      return `${ANSWER_SPACING}=${answer.match[0]}->${answer.match[1]}${feedback}`;
+    }).join('\n');
+  }
 };
 
 const buildAnswers = question => {

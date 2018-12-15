@@ -122,4 +122,36 @@ describe('buildAnswers()', () => {
       expectEssay([]).equal('{\n\n}');
     });
   });
+  describe(`${QUESTION_TYPES.MATCH} question`, () => {
+    const expectMATCH = answers => expectTo(answers, QUESTION_TYPES.MATCH);
+    const expectMATCHToThrow = answers => expectToThrow(answers, QUESTION_TYPES.MATCH);
+
+    it('should throw if the format is incorrect', () => {
+      expectMATCHToThrow([]);
+      expectMATCHToThrow([1, 2]);
+    });
+    it(`should format ${QUESTION_TYPES.MATCH}`, () => {
+      const pair1 = {
+        input: { match: ['foo', 'bar'] },
+        output: '=foo->bar'
+      };
+      const pair2 = {
+        input: { match: ['key', 'val'] },
+        output: '=key->val'
+      };
+      const pair3 = {
+        input: { match: ['one', '1'] },
+        output: '=one->1'
+      };
+      const pair4 = {
+        input: { match: ['true', 'false'], feedback: 'yup' },
+        output: '=true->false#yup'
+      };
+
+      expectMATCH([pair1.input, pair2.input, pair3.input, pair4.input])
+        .equal(buildResults([pair1.output, pair2.output, pair3.output, pair4.output]));
+
+
+    });
+  });
 });
