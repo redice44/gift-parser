@@ -32,7 +32,7 @@ describe('buildAnswers()', () => {
       expectTFToThrow([{}]);
       expectTFToThrow([{ foo: 'bar' }]);
     });
-    it('should format TF', () => {
+    it(`should format ${QUESTION_TYPES.TF}`, () => {
       expectTF([{ correct: true }]).equal(buildResults(['T']));
       expectTF([{ correct: true, feedback: 'yes' }]).equal(buildResults(['T#yes']));
       expectTF([{ correct: true, feedback: ['yes', 'no'] }]).equal(buildResults(['T#yes#no']));
@@ -113,6 +113,13 @@ describe('buildAnswers()', () => {
         negWeigthedAnswer.output,
         incorrectFeedback.output
       ]));
+    });
+  });
+  describe(`${QUESTION_TYPES.ESSAY} question`, () => {
+    const expectEssay = answers => expectTo(answers, QUESTION_TYPES.ESSAY);
+
+    it(`should format ${QUESTION_TYPES.ESSAY}`, () => {
+      expectEssay([]).equal('{\n\n}');
     });
   });
 });

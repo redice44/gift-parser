@@ -34,7 +34,8 @@ const answerFormaters = {
       return `${ANSWER_SPACING}${symbol}${weight}${answer.text}${feedback}`;
     }).join('\n');
     return answersText;
-  }
+  },
+  [QUESTION_TYPES.ESSAY]: answers => ''
 };
 
 const buildAnswers = question => {
