@@ -1,6 +1,7 @@
 const QUESTION_TYPES = require('../constants/questionTypes');
 const {
   ANSWER_END,
+  ANSWER_NUMERIC_START,
   ANSWER_SPACING,
   ANSWER_START
 } = require('../constants/answerFormatting');
@@ -60,6 +61,25 @@ const answerFormaters = {
       let feedback = answer.feedback ? `#${answer.feedback}` : '';
       return `${ANSWER_SPACING}=${answer.text}${feedback}`;
     }).join('\n');
+  },
+  [QUESTION_TYPES.NUMERIC]: answers => {
+    if (answers.length < 1) {
+      throw new Error(`Invalid ${QUESTION_TYPES.NUMERIC} answer format.`);
+    }
+
+    return answers.map(answer => {
+      const feedback = answer.feedback ? `#${answer.feedback}` : '';
+      const weight = answer.weight ? `%${answer.weight}%` : '';
+      let answerText = '';
+      if (answer.value) {
+        answerText = `${answer.value}${answer.range ? `:${answer.range}` : ''}`;
+      } else if (answer.min !== undefined && answer.max !== undefined) {
+        answerText = `${answer.min}..${answer.max}`;
+      } else {
+        throw new Error(`Invalid ${QUESTION_TYPES.NUMERIC} answer format.`);
+      }
+      return `${ANSWER_SPACING}=${weight}${answerText}${feedback}`;
+    }).join('\n');
   }
 };
 
@@ -72,7 +92,7 @@ const buildAnswers = question => {
     throw new Error('Answers must be an array.');
   }
 
-  return `${ANSWER_START}${answerFormaters[type](answers)}${ANSWER_END}`;
+  return `${type === QUESTION_TYPES.NUMERIC ? ANSWER_NUMERIC_START : ANSWER_START}${answerFormaters[type](answers)}${ANSWER_END}`;
 };
 
 module.exports = buildAnswers;

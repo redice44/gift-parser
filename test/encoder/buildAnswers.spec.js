@@ -3,6 +3,7 @@ const expect = require('chai').expect;
 const QUESTION_TYPES = require('../../src/constants/questionTypes');
 const {
   ANSWER_END,
+  ANSWER_NUMERIC_START,
   ANSWER_SPACING,
   ANSWER_START
 } = require('../../src/constants/answerFormatting');
@@ -12,7 +13,10 @@ const buildAnswers = require('../../src/encoder/buildAnswers');
 describe('buildAnswers()', () => {
   const expectTo = (answers, type) => expect(buildAnswers({ answers, type })).to;
   const expectToThrow = (answers, type) => expect(() => buildAnswers({ answers, type })).to.throw();
-  const buildResults = answers => `${ANSWER_START}${answers.map(answer => `${ANSWER_SPACING}${answer}`).join('\n')}${ANSWER_END}`;
+  const buildResults = (answers, isNumeric) =>
+    `${isNumeric ? ANSWER_NUMERIC_START : ANSWER_START}${answers.map(answer =>
+      `${ANSWER_SPACING}${answer}`
+    ).join('\n')}${ANSWER_END}`;
 
   it('should throw on invalid types.', () => {
     expectToThrow([]);
@@ -185,6 +189,53 @@ describe('buildAnswers()', () => {
         ans2.output,
         ansFeedback.output
       ]));
+    });
+  });
+  describe(`${QUESTION_TYPES.NUMERIC} question`, () => {
+    const expectNUMERIC = answers => expectTo(answers, QUESTION_TYPES.NUMERIC);
+    const expectNUMERICToThrow = answers => expectToThrow(answers, QUESTION_TYPES.NUMERIC);
+
+    it('should throw if the format is incorrect', () => {
+      expectNUMERICToThrow([]);
+      expectNUMERICToThrow([1]);
+    });
+    it(`it should format ${QUESTION_TYPES.NUMERIC}`, () => {
+      const ans1 = {
+        input: { value: 10 },
+        output: '=10'
+      };
+      const ans2 = {
+        input: { value: 10, range: 2 },
+        output: '=10:2'
+      };
+      const ans3 = {
+        input: { value: 10, feedback: 'yes' },
+        output: '=10#yes'
+      };
+      const ans4 = {
+        input: { value: 10, feedback: 'yes', weight: 50 },
+        output: '=%50%10#yes'
+      };
+      const range1 = {
+        input: { min: 1, max: 2 },
+        output: '=1..2'
+      };
+      const range2 = {
+        input: { min: 0, max: 10, feedback: 'yes' },
+        output: '=0..10#yes'
+      };
+      const range3 = {
+        input: { min: 0, max: 10, feedback: 'yes', weight: 75 },
+        output: '=%75%0..10#yes'
+      };
+
+      expectNUMERIC([ans1.input]).equal(buildResults([ans1.output], true));
+      expectNUMERIC([ans2.input]).equal(buildResults([ans2.output], true));
+      expectNUMERIC([ans3.input]).equal(buildResults([ans3.output], true));
+      expectNUMERIC([ans4.input]).equal(buildResults([ans4.output], true));
+      expectNUMERIC([range1.input]).equal(buildResults([range1.output], true));
+      expectNUMERIC([range2.input]).equal(buildResults([range2.output], true));
+      expectNUMERIC([range3.input]).equal(buildResults([range3.output], true));
     });
   });
 });
