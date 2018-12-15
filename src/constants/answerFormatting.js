@@ -1,5 +1,5 @@
 const ANSWER_END = `
-  }`;
+}`;
 const ANSWER_SPACING = '  ';
 const ANSWER_START = `{
   `;

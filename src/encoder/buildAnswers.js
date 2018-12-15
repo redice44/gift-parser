@@ -21,6 +21,19 @@ const answerFormaters = {
     }
 
     return `${ANSWER_SPACING}${answer.correct ? 'T' : 'F'}${feedback}`;
+  },
+  [QUESTION_TYPES.MC]: answers => {
+    if (answers.length < 2) {
+      throw new Error(`Invalid ${QUESTION_TYPES.MC} answer format.`);
+    }
+    const answersText = answers.map(answer => {
+      const symbol = answer.correct ? '=' : '~';
+      const weight = answer.weight !== undefined && !answer.correct ? `%${answer.weight}%`: '';
+      const feedback = answer.feedback ? `#${answer.feedback}` : '';
+
+      return `${ANSWER_SPACING}${symbol}${weight}${answer.text}${feedback}`;
+    }).join('\n');
+    return answersText;
   }
 };
 
