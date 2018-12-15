@@ -1,6 +1,6 @@
 module.exports = {
-  html: 'HTML',
-  markdown: 'MARKDOWN',
-  moodle: 'MOODLE',
-  plain: 'PLAIN'
+  html: 'html',
+  markdown: 'markdown',
+  moodle: 'moodle',
+  plain: 'plain'
 };
