@@ -1,10 +1,10 @@
 {
   "name": "@redice44/gift-parser",
-  "version": "0.0.2",
+  "version": "0.0.3",
   "description": "",
   "main": "src/index.js",
   "scripts": {
-    "test": "nyc mocha test",
+    "test": "nyc mocha \"test/**/*.spec.js\"",
     "test:report": "nyc report",
     "test:watch": "nodemon --exec nyc mocha \"test/**/*.spec.js\""
   },
