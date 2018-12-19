@@ -43,7 +43,8 @@ describe('encoder', () => {
       output: `::${title}::${body}{
   ${correctAns.output}
   ${incorrectAns.output}
-}`
+}
+`
     };
     const question2 = {
       input: {

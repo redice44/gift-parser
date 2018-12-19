@@ -9,7 +9,7 @@ const encoder = questions => {
 
   return questions.map(question => {
     return `${buildTitle(question)}${buildBody(question)}${buildAnswers(question)}`;
-  }).join('\n');
+  }).join('\n\n');
 };
 
 module.exports = encoder;
