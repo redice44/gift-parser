@@ -88,6 +88,9 @@ const buildAnswers = question => {
   if (!type || !Object.values(QUESTION_TYPES).includes(type)) {
     throw new Error('Requires a valid question type.');
   }
+  if (type === QUESTION_TYPES.DESCRIPTION) {
+    return '';
+  }
   if (!Array.isArray(answers)) {
     throw new Error('Answers must be an array.');
   }
