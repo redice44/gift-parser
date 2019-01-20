@@ -67,9 +67,29 @@ describe('encoder', () => {
         body,
         type: QUESTION_TYPES.DESCRIPTION
       },
-      output: `::${title}::${body}`
+      output: `::${title}::${body}
+`
     };
 
-    expectTo([question1.input, question2.input, question3.input]).equal(buildResults([question1.output, question2.output, question3.output]));
+    const question4 = {
+      input: {
+        title,
+        body,
+        type: QUESTION_TYPES.ESSAY
+      },
+      output: `::${title}::${body}{}`
+    };
+
+    expectTo([
+      question1.input,
+      question2.input,
+      question3.input,
+      question4.input
+    ]).equal(buildResults([
+      question1.output,
+      question2.output,
+      question3.output,
+      question4.output
+    ]));
   });
 });

@@ -123,7 +123,7 @@ describe('buildAnswers()', () => {
     const expectEssay = answers => expectTo(answers, QUESTION_TYPES.ESSAY);
 
     it(`should format ${QUESTION_TYPES.ESSAY}`, () => {
-      expectEssay([]).equal('{\n\n}');
+      expectEssay([]).equal('{}');
     });
   });
   describe(`${QUESTION_TYPES.MATCH} question`, () => {

@@ -36,7 +36,6 @@ const answerFormaters = {
     }).join('\n');
     return answersText;
   },
-  [QUESTION_TYPES.ESSAY]: answers => '',
   [QUESTION_TYPES.MATCH]: answers => {
     if (answers.length < 2) {
       throw new Error(`Invalid ${QUESTION_TYPES.MATCH} answer format.`);
@@ -90,6 +89,9 @@ const buildAnswers = question => {
   }
   if (type === QUESTION_TYPES.DESCRIPTION) {
     return '';
+  }
+  if (type === QUESTION_TYPES.ESSAY) {
+    return '{}';
   }
   if (!Array.isArray(answers)) {
     throw new Error('Answers must be an array.');
